@@ -90,32 +90,44 @@
             </div>
 
             <div class="row">
-                <div class="form-group col-md-6">
-                    <label class="col-md-3 col-form-label">Email Address: </label>
+                <div class="form-group col-md-12">
+                    <!-- <label class="col-md-3 col-form-label">Email Address: </label>
                     <div class="col-md-9">
                         <input type="email" class="form-control" name="email" placeholder="email@example.com" autocomplete="off" />
                     </div>
-                </div>
+                    </div> -->
 
-                More Links: <span class="fa fa-plus add"></span>
-                <div class="appending_div">
-                    <div>
-                        Link URL: <input type="text" name="blog_linku_one[]"> &nbsp; Link Name:  <input type="text" name="blog_linkn_one[]">
+                    <script>
+                        $(document).ready(function() {
+                            var max_fields      = 10; //maximum input boxes allowed
+                            var wrapper   		= $(".input_fields_wrap"); //Fields wrapper
+                            var add_button      = $(".add_field_button"); //Add button ID
+                            
+                            var x = 1; //initlal text box count
+                            $(add_button).click(function(e){ //on add input button click
+                                e.preventDefault();
+                                if(x < max_fields){ //max input box allowed
+                                    x++; //text box increment
+                                    $(wrapper).append('<div><input type="text" name="mytext[]" class="form-control" placeholder="email@example.com" autocomplete="off"/><a href="#" class="remove_field">&nbsp;&nbsp;<span class="fa fa-times"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Primary&nbsp;&nbsp;<input type="radio" id="_inputHorizontalFemale" name="inputRadiosMale2" checked/>&nbsp;&nbsp;&nbsp;&nbsp;Opted Out&nbsp;&nbsp;<input type="checkbox" id="inputBasicRemember1" name="inputCheckbox"  autocomplete="off"/>&nbsp;&nbsp;Invalid&nbsp;&nbsp;<input type="checkbox" id="inputBasicRemember1" name="inputCheckbox"  autocomplete="off"/></div>'); //add input box
+                                }
+                            });
+                            
+                            $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+                                e.preventDefault(); $(this).parent('div').remove(); x--;
+                            })
+                        });
+        
+                    </script>
+
+                    <div class="form-group col-md-6">
+                        <div class="input_fields_wrap">
+                            <button class="add_field_button"><span class="fa fa-plus add"></span></button>
+                            <div><input type="text" name="mytext[]" class="form-control" placeholder="email@example.com" autocomplete="off"></div>
+                        </div>
                     </div>
                 </div>
                 
-                <script>
-                    $(document).ready(function() {
-                        var i = 1;
-                        $('.add').on('click', function() {
-                            var field = '<br><div>Link URL '+i+': <input type="text" name="blog_linku_one[]"> &nbsp; Link Name '+i+':  <input type="text" name="blog_linkn_one[]"></div>';
-                            $('.appending_div').append(field);
-                            i = i+1;
-                        })
-                    })
-                </script>
-
-                <div class="form-group col-md-2">
+                <!-- <div class="form-group col-md-2">
                     <label class="col-md-3 col-form-label">Primary</label>
                     <div class="radio-custom radio-default radio-inline">
                         <input type="radio" id="_inputHorizontalFemale" name="inputRadiosMale2" checked/>
@@ -134,7 +146,7 @@
                     <div class="checkbox-custom checkbox-default">
                         <input type="checkbox" id="inputBasicRemember1" name="inputCheckbox"  autocomplete="off"/>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
@@ -227,6 +239,13 @@
                         <div class="col-md-9">
                             <input type="text" class="form-control" name="name"  autocomplete="off"/>
                         </div>         
+                </div>
+
+                <div class="form-group col-md-12">
+                    <div class="col-md-4">
+                        <button type="button" class="fa fa-mouse-pointer"></button>
+                        <button type="reset" class="fa fa-times"></button>
+                    </div>
                 </div>
             </div>
 
@@ -346,10 +365,17 @@
         <div class="accordion_body" style="display: none;">
 
             <div class="row">
-                 <div class="form-group col-md-6">
+                <div class="form-group col-md-12">
                     <label class="col-md-3 col-form-label">Assigned to: </label>
-                    <div class="col-md-9">
+                    <div class="col-md-4">
                         <input type="text" class="form-control" name="name"  autocomplete="off"/>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-12">
+                    <div class="col-md-4">
+                        <button type="button" class="fa fa-mouse-pointer"></button>
+                        <button type="reset" class="fa fa-times"></button>
                     </div>
                 </div>
 
